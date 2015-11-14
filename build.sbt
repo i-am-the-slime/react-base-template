@@ -6,7 +6,7 @@ organization := "codes.mark"
 
 lazy val clients = Seq(client)
 
-lazy val scalaVersionNumber = "2.11.6"
+lazy val scalaVersionNumber = "2.11.7"
 
 lazy val server = (project in file("server")).settings(
   scalaVersion := scalaVersionNumber,
@@ -31,14 +31,13 @@ lazy val client = (project in file("client")).settings(
   persistLauncher in Test := false,
   sourceMapsDirectories += sharedJs.base / "..",
   libraryDependencies ++= Seq(
-    "org.scala-js"                                    %%% "scalajs-dom"  % "0.8.0",
-    "com.github.japgolly.scalajs-react"               %%% "core"         % "0.9.0",
-    "com.github.japgolly.scalajs-react"               %%% "ext-scalaz71" % "0.9.0",
-    "com.github.japgolly.scalajs-react"               %%% "ext-monocle"  % "0.9.0",
-    "com.github.chandu0101.scalajs-react-components"  %%% "core"         % "0.1.0"
+    "org.scala-js"                                    %%% "scalajs-dom"  % "0.8.2",
+    "com.github.japgolly.scalajs-react"               %%% "core"         % "0.10.1",
+    "com.github.japgolly.scalajs-react"               %%% "ext-scalaz71" % "0.10.1",
+    "com.github.japgolly.scalajs-react"               %%% "ext-monocle"  % "0.10.1"
   ),
   jsDependencies +=
-  "org.webjars" % "react" % "0.12.2" / "react-with-addons.js" commonJSName "React"
+  "org.webjars" % "react" % "0.14.1" / "react-with-addons.js" commonJSName "React"
 ).enablePlugins(ScalaJSPlugin, ScalaJSPlay).
   dependsOn(sharedJs)
 
